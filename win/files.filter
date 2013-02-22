@@ -1,0 +1,59 @@
+### BUILD THE JDK
+
++ /ASSEMBLY_EXCEPTION
++ /LICENSE
++ /THIRD_PARTY_README
++ /release
++ /src.zip
++ /bin/***
++ /include/***
++ /lib/***
+
++ /jre/
+
+#########################
+### BUILD THE JRE
+
++ /jre/ASSEMBLY_EXCEPTION
++ /jre/LICENSE
++ /jre/THIRD_PARTY_README
+
++ /jre/bin/
++ /jre/bin/**/
++ /jre/bin/client/jvm.dll
++ /jre/bin/java.exe
++ /jre/bin/java.dll
++ /jre/bin/management.dll
++ /jre/bin/msvcr100.dll
++ /jre/bin/net.dll
++ /jre/bin/nio.dll
++ /jre/bin/sunmscapi.dll
++ /jre/bin/verify.dll
++ /jre/bin/zip.dll
+
++ /jre/lib/
++ /jre/lib/**/
++ /jre/lib/currency.data
++ /jre/lib/ext/meta-index
++ /jre/lib/ext/sunec.jar
++ /jre/lib/ext/sunjce_provider.jar
++ /jre/lib/ext/sunmscapi.jar
++ /jre/lib/i386/jvm.cfg
++ /jre/lib/logging.properties
++ /jre/lib/meta-index
++ /jre/lib/net.properties
++ /jre/lib/security/US_export_policy.jar
++ /jre/lib/security/cacerts
++ /jre/lib/security/java.security
++ /jre/lib/security/local_policy.jar
++ /jre/lib/tzmappings
++ /jre/lib/zi/America/Los_Angeles
++ /jre/lib/zi/Etc/UTC
++ /jre/lib/zi/ZoneInfoMappings
+
+## Important:
+## Exclude any file not matched by the rules above
+## Must be the last rule
+
+- *
+

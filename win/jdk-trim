@@ -1,0 +1,59 @@
+#!/bin/bash -u -e
+
+function clear_tmp_folders()
+{
+    rm -rf tmp_classes_in
+    rm -rf tmp_classes_out
+}
+
+# Helper function to unpack, trim, and repack a jar
+# arg1: jar name, to be found in "$SOURCE_JDK"/jre/lib/
+function process_jar
+{
+    local JAR_NAME=$1
+
+    echo "Unzipping $JAR_NAME"
+
+    # Remove temp directories
+    clear_tmp_folders
+    mkdir tmp_classes_in
+
+    # Unzip the jar
+    unzip -d tmp_classes_in "$SOURCE_JDK"/jre/lib/$JAR_NAME 1>/dev/null
+
+    echo "Repacking $JAR_NAME"
+
+    # Rsync the files we want to keep into tmp_classes_out/
+    rsync --delete --delete-excluded --dirs --archive --filter='merge classes.filter' tmp_classes_in/ tmp_classes_out/
+
+    # Remove empty directories created by rsync
+    find tmp_classes_out -type d -depth -empty -delete
+
+    # Re-create the jar
+    jar -cf "$DEST"/jre/lib/$JAR_NAME -C tmp_classes_out .
+}
+
+#############
+# Main script
+#############
+
+if [ $# -ne 2 ]; then
+    echo "usage: $0 [source jdk] [destination folder]"
+    echo
+    echo "example: $0 openjdk-1.7.0 openjdk-1.7.0-trimmed"
+    exit 1
+fi
+
+SOURCE_JDK="$1"
+DEST="$2"
+
+echo "Copying files..."
+rsync --delete --delete-excluded --dirs --archive --filter='merge files.filter' "$SOURCE_JDK"/ "$DEST"/
+
+process_jar charsets.jar
+process_jar jce.jar
+process_jar jsse.jar
+process_jar resources.jar
+process_jar rt.jar
+
+clear_tmp_folders
