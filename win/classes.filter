@@ -1,5 +1,5 @@
 ###
-### Rsync filters for the classes that we want to keep from OpenJDK
+### Rsync filters for the classes from OpenJDK that we want to keep
 ###
 
 # Add all directories - but no files
@@ -8,8 +8,8 @@
 # and subpaths to all directories we're including files from.
 #
 # E.g., without this, if we wanted to include /foo/bar/baz/Lol.class, we would
-# have to add /foo, /foo/bar, and /foo/bar/baz, and if we forgot one Lol.class
-# would be silently skipped.
+# also have to add /foo, /foo/bar, and /foo/bar/baz. Forgetting one of those
+# would result in Lol.class being silently skipped.
 #
 # The downside of this approach is that we end up with a lot of empty dirs, but
 # we remove them in a later step.

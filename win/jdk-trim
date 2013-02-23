@@ -50,6 +50,9 @@ DEST="$2"
 echo "Copying files..."
 rsync --delete --delete-excluded --dirs --archive --filter='merge files.filter' "$SOURCE_JDK"/ "$DEST"/
 
+# Remove empty directories created by rsync
+find "$DEST"/ -type d -depth -empty -delete
+
 process_jar charsets.jar
 process_jar jce.jar
 process_jar jsse.jar

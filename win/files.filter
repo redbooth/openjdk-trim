@@ -1,4 +1,4 @@
-### BUILD THE JDK
+### Build the JDK ###
 
 + /ASSEMBLY_EXCEPTION
 + /LICENSE
@@ -11,8 +11,7 @@
 
 + /jre/
 
-#########################
-### BUILD THE JRE
+### Build the JRE ###
 
 + /jre/ASSEMBLY_EXCEPTION
 + /jre/LICENSE
@@ -47,9 +46,7 @@
 + /jre/lib/security/java.security
 + /jre/lib/security/local_policy.jar
 + /jre/lib/tzmappings
-+ /jre/lib/zi/America/Los_Angeles
-+ /jre/lib/zi/Etc/UTC
-+ /jre/lib/zi/ZoneInfoMappings
++ /jre/lib/zi/***
 
 ## Important:
 ## Exclude any file not matched by the rules above
