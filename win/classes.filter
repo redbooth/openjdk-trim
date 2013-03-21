@@ -74,6 +74,7 @@
 + /javax/security/cert/*
 + /javax/security/sasl/*
 + /org/jcp/xml/dsig/internal/dom/*
++ /org/w3c/dom/*
 + /sun/io/*
 + /sun/launcher/*
 + /sun/management/*
@@ -125,6 +126,7 @@
 + /sun/util/calendar/*
 + /sun/util/locale/*
 + /sun/util/logging/*
++ /sun/util/logging/resources/*
 + /sun/util/resources/*
 
 ## Important:
