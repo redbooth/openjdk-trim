@@ -24,6 +24,7 @@
 + /com/sun/jmx/remote/util/*
 + /com/sun/management/*
 + /com/sun/net/ssl/internal/ssl/*
++ /com/sun/org/apache/xpath/internal/jaxp/*
 + /com/sun/security/cert/internal/x509/*
 + /com/sun/security/sasl/*
 + /com/sun/security/sasl/util/*
@@ -73,6 +74,8 @@
 + /javax/security/auth/x500/*
 + /javax/security/cert/*
 + /javax/security/sasl/*
++ /javax/xml/parsers/*
++ /javax/xml/xpath/*
 + /org/jcp/xml/dsig/internal/dom/*
 + /org/w3c/dom/*
 + /sun/io/*
