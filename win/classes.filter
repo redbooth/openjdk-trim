@@ -84,6 +84,7 @@
 + /org/xml/sax/**
 + /sun/io/*
 + /sun/launcher/*
++ /sun/launcher/resources/*
 + /sun/management/*
 + /sun/misc/*
 + /sun/net/*
