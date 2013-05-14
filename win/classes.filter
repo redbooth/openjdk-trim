@@ -18,6 +18,8 @@
 
 # Now, the actual rules for the classes that we want to keep
 
++ /com/sun/beans/*
++ /com/sun/beans/finder/*
 + /com/sun/jmx/defaults/*
 + /com/sun/jmx/interceptor/*
 + /com/sun/jmx/mbeanserver/*
@@ -72,6 +74,8 @@
 + /javax/management/*
 + /javax/management/loading/*
 + /javax/management/openmbean/*
++ javax/naming/Context.class
++ javax/naming/NamingException.class
 + /javax/net/*
 + /javax/net/ssl/*
 + /javax/security/auth/callback/*
