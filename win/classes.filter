@@ -74,8 +74,8 @@
 + /javax/management/*
 + /javax/management/loading/*
 + /javax/management/openmbean/*
-+ javax/naming/Context.class
-+ javax/naming/NamingException.class
++ /javax/naming/Context.class
++ /javax/naming/NamingException.class
 + /javax/net/*
 + /javax/net/ssl/*
 + /javax/security/auth/callback/*
