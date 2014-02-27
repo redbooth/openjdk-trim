@@ -24,7 +24,7 @@ function process_jar
     echo "Repacking $JAR_NAME"
 
     # Rsync the files we want to keep into tmp_classes_out/
-    rsync --delete --delete-excluded --dirs --prune-empty-dirs --archive --filter='merge classes.filter' tmp_classes_in/ tmp_classes_out/
+    rsync --delete --delete-excluded --dirs --prune-empty-dirs --archive --filter="merge $OS/classes.filter" tmp_classes_in/ tmp_classes_out/
 
     # Re-create the jar
     jar -cf "$DEST"/jre/lib/$JAR_NAME -C tmp_classes_out .
@@ -34,18 +34,23 @@ function process_jar
 # Main script
 #############
 
-if [ $# -ne 2 ]; then
-    echo "usage: $0 [source jdk] [destination folder]"
-    echo
-    echo "example: $0 openjdk-1.7.0 openjdk-1.7.0-trimmed"
+if [ $# -ne 3 ]; then
+    echo "usage: $0 [osx|win] [source jdk] [destination folder]"
+    echo "example: $0 win openjdk-1.7.0 openjdk-1.7.0-trimmed"
     exit 1
 fi
 
-SOURCE_JDK="$1"
-DEST="$2"
+OS="$1"
+SOURCE_JDK="$2"
+DEST="$3"
+
+if [ $OS != "win" ] && [ $OS != "osx" ]; then
+    echo "Error: first parameter must be 'osx' or 'win'"
+    exit 1
+fi
 
 echo "Copying files..."
-rsync --delete --delete-excluded --dirs --prune-empty-dirs --archive --filter='merge files.filter' "$SOURCE_JDK"/ "$DEST"/
+rsync --delete --delete-excluded --dirs --prune-empty-dirs --archive --filter="merge $OS/files.filter" "$SOURCE_JDK"/ "$DEST"/
 
 process_jar charsets.jar
 process_jar jce.jar

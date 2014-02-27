@@ -1,0 +1,72 @@
+### Build the JDK ###
+
++ /ASSEMBLY_EXCEPTION
++ /LICENSE
++ /THIRD_PARTY_README
++ /release
++ /src.zip
++ /bin/***
++ /include/***
++ /lib/***
+
++ /jre/
+
+### Build the JRE ###
+
++ /jre/bin/
++ /jre/bin/java
+
++ /jre/ASSEMBLY_EXCEPTION
++ /jre/LICENSE
++ /jre/THIRD_PARTY_README
+
+# Add all paths so that we don't have to manually specify every single sub-path
++ /jre/lib/
++ /jre/lib/**/
+
+# Specifically exclude some of the larger dylibs that are unused.
+# We don't bother excluding the smaller ones
+- /jre/lib/libfontmanager.dylib
+- /jre/lib/liblcms.dylib
+- /jre/lib/libsplashscreen.dylib
+- /jre/lib/libjdwp.dylib
+
+# Add all remaining dylibs
++ /jre/lib/*.dylib
+
+# Add misc config files and other things
++ /jre/lib/currency.data
++ /jre/lib/jvm.cfg
++ /jre/lib/logging.properties
++ /jre/lib/meta-index
++ /jre/lib/net.properties
++ /jre/lib/jspawnhelper
+
+# Add lib/ext
++ /jre/lib/ext/meta-index
++ /jre/lib/ext/sunec.jar
++ /jre/lib/ext/sunjce_provider.jar
++ /jre/lib/ext/sunpkcs11.jar
+
+# Add lib/security
++ /jre/lib/security/US_export_policy.jar
++ /jre/lib/security/cacerts
++ /jre/lib/security/java.security
++ /jre/lib/security/local_policy.jar
+
+# Add awt. Because yes, somehow SWT depends on AWT on OS X...
++ /jre/lib/lwawt/liblwawt.dylib
+
+# Add timezone information
++ /jre/lib/zi/***
+
+# And last but not least, add the JVM
++ /jre/lib/server/libjvm.dylib
++ /jre/lib/server/libjsig.dylib
+
+## Important:
+## Exclude any file not matched by the rules above
+## Must be the last rule
+
+- *
+

@@ -12,11 +12,15 @@
 #including files from.
 + /**/
 
-### Begin Windows-specific classes
+### Begin OSX-specific classes
 
-# (no Windows-specific class for the moment)
++ /com/sun/imageio/**
++ /java/awt/**
++ /javax/imageio/**
++ /sun/awt/**
++ /sun/java2d/**
 
-### End Windows-specific classes
+### End OSX-specific classes
 
 # The classes below are common to OSX and Windows.
 # If you change them, please update both platforms.
@@ -95,6 +99,7 @@
 + /sun/management/*
 + /sun/misc/*
 + /sun/net/*
++ /sun/net/sdp/*
 + /sun/net/spi/*
 + /sun/net/spi/nameservice/*
 + /sun/net/util/*
