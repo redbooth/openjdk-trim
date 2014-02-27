@@ -24,10 +24,7 @@ function process_jar
     echo "Repacking $JAR_NAME"
 
     # Rsync the files we want to keep into tmp_classes_out/
-    rsync --delete --delete-excluded --dirs --archive --filter='merge classes.filter' tmp_classes_in/ tmp_classes_out/
-
-    # Remove empty directories created by rsync
-    find tmp_classes_out -type d -depth -empty -delete
+    rsync --delete --delete-excluded --dirs --prune-empty-dirs --archive --filter='merge classes.filter' tmp_classes_in/ tmp_classes_out/
 
     # Re-create the jar
     jar -cf "$DEST"/jre/lib/$JAR_NAME -C tmp_classes_out .
@@ -48,10 +45,7 @@ SOURCE_JDK="$1"
 DEST="$2"
 
 echo "Copying files..."
-rsync --delete --delete-excluded --dirs --archive --filter='merge files.filter' "$SOURCE_JDK"/ "$DEST"/
-
-# Remove empty directories created by rsync
-find "$DEST"/ -type d -depth -empty -delete
+rsync --delete --delete-excluded --dirs --prune-empty-dirs --archive --filter='merge files.filter' "$SOURCE_JDK"/ "$DEST"/
 
 process_jar charsets.jar
 process_jar jce.jar
