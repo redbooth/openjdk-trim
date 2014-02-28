@@ -26,6 +26,8 @@
 
 # Specifically exclude some of the larger dylibs that are unused.
 # We don't bother excluding the smaller ones
+- /jre/lib/libmlib_image.dylib
+- /jre/lib/libawt.dylib
 - /jre/lib/libfontmanager.dylib
 - /jre/lib/liblcms.dylib
 - /jre/lib/libsplashscreen.dylib
@@ -53,9 +55,6 @@
 + /jre/lib/security/cacerts
 + /jre/lib/security/java.security
 + /jre/lib/security/local_policy.jar
-
-# Add awt. Because yes, somehow SWT depends on AWT on OS X...
-+ /jre/lib/lwawt/liblwawt.dylib
 
 # Add timezone information
 + /jre/lib/zi/***

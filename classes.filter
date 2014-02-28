@@ -2,28 +2,16 @@
 ### Rsync filters for the classes from OpenJDK that we want to keep
 ###
 
-# IMPORTANT 1: This file has to be kept in sync for both OS X and Windows
-
-# IMPORTANT 2: When adding classes to this file, please make sure they are
-#              alphabetically sorted to make merges and diffs easier.
+# IMPORTANT: When adding classes to this file, please make sure they are
+#            alphabetically sorted to make merges and diffs easier.
 
 # Add all directories - but no files. We need to do this otherwise rsync would
 # want us to manually specify the paths and subpaths to all directories we're
 #including files from.
 + /**/
 
-### Begin OSX-specific classes
 
-+ /com/sun/imageio/**
-+ /java/awt/**
-+ /javax/imageio/**
-+ /sun/awt/**
-+ /sun/java2d/**
-
-### End OSX-specific classes
-
-# The classes below are common to OSX and Windows.
-# If you change them, please update both platforms.
+# Now the classes that we want to keep
 
 + /com/sun/beans/*
 + /com/sun/beans/finder/*
