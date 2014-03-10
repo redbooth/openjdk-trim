@@ -36,6 +36,9 @@
 # Add all remaining dylibs
 + /jre/lib/*.dylib
 
+# Add libjli, which we need to convince OSX to not ask the user to install a JRE
++ /jre/lib/jli/libjli.dylib
+
 # Add misc config files and other things
 + /jre/lib/currency.data
 + /jre/lib/jvm.cfg
