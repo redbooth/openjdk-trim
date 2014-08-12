@@ -1,0 +1,74 @@
+### Build the JDK ###
+
++ /ASSEMBLY_EXCEPTION
++ /LICENSE
++ /THIRD_PARTY_README
++ /release
++ /src.zip
++ /bin/***
++ /include/***
++ /lib/***
+
++ /jre/
+
+### Build the JRE ###
+
++ /jre/bin/
++ /jre/bin/java
+
++ /jre/ASSEMBLY_EXCEPTION
++ /jre/LICENSE
++ /jre/THIRD_PARTY_README
+
+# Add all paths so that we don't have to manually specify every single sub-path
++ /jre/lib/
++ /jre/lib/**/
+
+# Specifically exclude some of the larger dylibs that are unused.
+# We don't bother excluding the smaller ones
+- /jre/lib/*/libmlib_image.so
+- /jre/lib/*/libawt.so
+- /jre/lib/*/libfontmanager.so
+- /jre/lib/*/liblcms.so
+- /jre/lib/*/libsplashscreen.so
+- /jre/lib/*/libjdwp.so
+
+# Add all remaining dylibs
++ /jre/lib/*/*.so
+
+#
++ /jre/lib/*/jli/libjli.so
+
+# Add misc config files and other things
++ /jre/lib/currency.data
++ /jre/lib/jvm.cfg
++ /jre/lib/logging.properties
++ /jre/lib/meta-index
++ /jre/lib/net.properties
++ /jre/lib/jspawnhelper
+
+# Add lib/ext
++ /jre/lib/ext/meta-index
++ /jre/lib/ext/sunec.jar
++ /jre/lib/ext/sunjce_provider.jar
++ /jre/lib/ext/sunpkcs11.jar
+
+# Add lib/security
++ /jre/lib/security/US_export_policy.jar
++ /jre/lib/security/cacerts
++ /jre/lib/security/java.security
++ /jre/lib/security/local_policy.jar
+
+# Add timezone information
++ /jre/lib/zi/***
+
+# And last but not least, add the JVM
++ /jre/lib/*/server/libjvm.so
++ /jre/lib/*/server/libjsig.so
+
+## Important:
+## Exclude any file not matched by the rules above
+## Must be the last rule
+
+- *
+
