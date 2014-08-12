@@ -35,7 +35,7 @@ function process_jar
 #############
 
 if [ $# -ne 3 ]; then
-    echo "usage: $0 [osx|win] [source jdk] [destination folder]"
+    echo "usage: $0 [osx|win|linux] [source jdk] [destination folder]"
     echo "example: $0 win openjdk-1.7.0 openjdk-1.7.0-trimmed"
     exit 1
 fi
@@ -44,8 +44,8 @@ OS="$1"
 SOURCE_JDK="$2"
 DEST="$3"
 
-if [ $OS != "win" ] && [ $OS != "osx" ]; then
-    echo "Error: first parameter must be 'osx' or 'win'"
+if [ $OS != "win" ] && [ $OS != "osx" ]  && [ $OS != "linux" ]; then
+    echo "Error: first parameter must be 'osx', 'win' or 'linux'"
     exit 1
 fi
 
