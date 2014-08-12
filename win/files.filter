@@ -19,13 +19,14 @@
 
 + /jre/bin/
 + /jre/bin/**/
-+ /jre/bin/client/jvm.dll
++ /jre/bin/server/jvm.dll
 + /jre/bin/java.exe
 + /jre/bin/java.dll
 + /jre/bin/management.dll
 + /jre/bin/msvcr100.dll
 + /jre/bin/net.dll
 + /jre/bin/nio.dll
++ /jre/bin/sunec.dll
 + /jre/bin/sunmscapi.dll
 + /jre/bin/verify.dll
 + /jre/bin/zip.dll
@@ -41,12 +42,16 @@
 + /jre/lib/logging.properties
 + /jre/lib/meta-index
 + /jre/lib/net.properties
+
+# Add lib/security
 + /jre/lib/security/US_export_policy.jar
 + /jre/lib/security/cacerts
 + /jre/lib/security/java.security
 + /jre/lib/security/local_policy.jar
+
+# Add timezone information
++ /jre/lib/tzdb.dat
 + /jre/lib/tzmappings
-+ /jre/lib/zi/***
 
 ## Important:
 ## Exclude any file not matched by the rules above

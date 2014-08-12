@@ -28,6 +28,7 @@
 # We don't bother excluding the smaller ones
 - /jre/lib/libmlib_image.dylib
 - /jre/lib/libawt.dylib
+- /jre/lib/libawt_lwawt.dylib
 - /jre/lib/libfontmanager.dylib
 - /jre/lib/liblcms.dylib
 - /jre/lib/libsplashscreen.dylib
@@ -60,7 +61,7 @@
 + /jre/lib/security/local_policy.jar
 
 # Add timezone information
-+ /jre/lib/zi/***
++ /jre/lib/tzdb.dat
 
 # And last but not least, add the JVM
 + /jre/lib/server/libjvm.dylib
