@@ -9,11 +9,11 @@ This can bring a typical JRE size from 100 MB down to 10 MB.
 Usage
 =====
 
-1. Configure the files you want to keep in classes.filter and files.filter
-   - files.filter will be applied to the whole JDK directory
-   - classes.filter will be applied to the JRE jars
+1. Configure the files you want to keep in `classes.filter` and `files.filter`
+   - `files.filter` will be applied to the whole JDK directory
+   - `classes.filter` will be applied to the JRE jars
 
-2. Call jdk-trim with a path to an OpenJDK build and an output path
+2. Call jdk-trim with a path to an OpenJDK build and an output path.
 
 Author
 ======
